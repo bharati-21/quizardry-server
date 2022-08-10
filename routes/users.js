@@ -1,11 +1,8 @@
 const express = require("express");
 const router = express.Router();
+const verifyAuth = require("../middleware/verifyAuth");
+const { postQuizAttempt } = require("../controllers/users-controller");
 
-router.get("/", (req, res) => {
-    console.log(req.url)
-});
-router.get("/:id", (req, res) => {
-    console.log(req.url)
-});
+router.post("/:userId/quizAttempts", verifyAuth, postQuizAttempt);
 
 module.exports = router;

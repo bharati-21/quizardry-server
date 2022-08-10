@@ -1,13 +1,12 @@
 const express = require("express");
 const router = express.Router();
+const verifyAuth = require("../middleware/verifyAuth");
+const {
+	getCategories,
+	getCategoryItems,
+} = require("../controllers/categories-controller");
 
-router.get("/", (req, res) => {
-    console.log(req.url);
-    res.json({ message: "categories" })
-});
-router.get("/:id", (req, res) => {
-    console.log(req.url);
-    res.json({ message: "categories/:id" })
-});
+router.get("/", verifyAuth, getCategories);
+router.get("/:categoryId", verifyAuth, getCategoryItems);
 
 module.exports = router;
