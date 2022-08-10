@@ -3,6 +3,17 @@ const mongoose = require("mongoose");
 /* Schema: blue print */
 /* Model: instance of this schema */
 
+const categorySchema = new mongoose.Schema({
+	categoryId: {
+		type: mongoose.ObjectId,
+		required: true,
+	},
+	categoryName: {
+		type: String,
+		required: true,
+	},
+});
+
 const questionSchema = new mongoose.Schema({
 	question: {
 		type: String,
@@ -21,10 +32,11 @@ const questionSchema = new mongoose.Schema({
 		},
 	],
 });
+
 const quizSchema = new mongoose.Schema(
 	{
-		categoryId: {
-			type: ObjectId,
+		category: {
+			type: categorySchema,
 			required: true,
 		},
 		quizName: {
@@ -35,12 +47,8 @@ const quizSchema = new mongoose.Schema(
 			type: [questionSchema],
 			required: true,
 		},
-		numQuestions: {
-			type: Number,
-			required: true,
-		},
-		marksPerQuestion: {
-			type: Number,
+		creatorUserId: {
+			type: mongoose.ObjectId,
 			required: true,
 		},
 	},
