@@ -1,4 +1,5 @@
 const express = require("express");
+const verifyAuth = require("../middleware/verifyAuth");
 const router = express.Router();
 
 const authRoutes = require("./auth");
@@ -8,7 +9,7 @@ const usersRoutes = require("./users");
 
 router.use("/auth", authRoutes);
 router.use("/categories", categoriesRoutes);
-router.use("/quizzes", quizzesRoutes);
-router.use("/users", usersRoutes);
+router.use("/quizzes", verifyAuth, quizzesRoutes);
+router.use("/users", verifyAuth, usersRoutes);
 
 module.exports = router;
