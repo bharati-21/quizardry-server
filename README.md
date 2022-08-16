@@ -10,14 +10,14 @@ Backend code repository for [Quizardry app](https://github.com/bharati-21/quizar
 ## Features:
 - This code has following routes:
   - [Auth](https://github.com/bharati-21/quizardry-server/blob/main/routes/auth.js):
-    - Login: `/api/auth/login` 
-    - Signup: `/api/auth/signup`
+    - Login: `[POST] - /api/auth/login` 
+    - Signup: `[POST] - /api/auth/signup`
   - [Categories](https://github.com/bharati-21/quizardry-server/blob/main/routes/categories.js):
-    - All categories: `/api/categories`
-    - Single category: `/api/categories/:categoryId`
+    - `[GET] - /api/categories`
+    - `[GET] - /api/categories/:categoryId`
   - [Quizzes](https://github.com/bharati-21/quizardry-server/blob/main/routes/quizzes.js):
-    - All quizzes: `/api/quizzes`
-    - Single quiz: `/api/quizzes/:quizId`
+    - `[GET, POST] - /api/quizzes`
+    - `[GET, DELETE] - /api/quizzes/:quizId`
   - [Users](https://github.com/bharati-21/quizardry-server/blob/main/routes/users.js):
-    - Update quiz attempt: `/api/users/:userId/quizAttempts`
+    - `[POST] - /api/users/:userId/quizAttempts`
   
