@@ -4,6 +4,7 @@ const routes = require("./routes");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const corsMiddleware = require("./middleware/corsMiddleware");
 
 // express app
 const app = express();
@@ -11,11 +12,8 @@ const port = process.env.PORT;
 const mongoURL = process.env.MONGO_URL;
 
 app.use(bodyParser.json());
-app.use(
-	cors({
-		origin: "*",
-	})
-);
+app.options("*", corsMiddleware);
+app.use(corsMiddleware);
 app.use("/api", routes);
 
 app.get("/", (req, res) => {
