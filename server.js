@@ -11,7 +11,11 @@ const port = process.env.PORT;
 const mongoURL = process.env.MONGO_URL;
 
 app.use(bodyParser.json());
-app.use(cors());
+app.use(
+	cors({
+		origin: "*",
+	})
+);
 app.use("/api", routes);
 
 app.get("/", (req, res) => {
