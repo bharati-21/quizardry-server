@@ -1,6 +1,10 @@
 const cors = require("cors");
 
-const originList = ["https://quizardry.netlify.app"];
+const originList = [
+	"https://quizardry.netlify.app",
+	"http://localhost:3000",
+	"http://192.168.0.108:3000",
+];
 var corsOptions = {
 	origin: (origin, callback) => {
 		if (originList.indexOf(origin) !== -1) {

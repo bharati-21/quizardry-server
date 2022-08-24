@@ -12,7 +12,7 @@ const mongoURL = process.env.MONGO_URL;
 
 app.use(bodyParser.json());
 app.options("*", allowCrossOrigin);
-app.use("/api", allowCrossOrigin, routes);
+app.use("/api", routes);
 
 app.get("/", (req, res) => {
 	res.send("Hello World!");
