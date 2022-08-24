@@ -3,8 +3,8 @@ require("dotenv").config();
 const routes = require("./routes");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const cors = require("cors");
 const corsMiddleware = require("./middleware/corsMiddleware");
+const responseHeaderMiddleware = require("./middleware/responseHeaderMiddleware");
 
 // express app
 const app = express();
@@ -14,6 +14,7 @@ const mongoURL = process.env.MONGO_URL;
 app.use(bodyParser.json());
 app.options("*", corsMiddleware);
 app.use(corsMiddleware);
+app.use(responseHeaderMiddleware);
 app.use("/api", routes);
 
 app.get("/", (req, res) => {
