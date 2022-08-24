@@ -25,4 +25,4 @@ mongoose
 			console.log(`Listening on port ${port}...`);
 		});
 	})
-	.catch("Connection Failed!");
+	.catch((error) => console.log("Connection Failed", error));
