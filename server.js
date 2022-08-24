@@ -3,15 +3,14 @@ require("dotenv").config();
 const routes = require("./routes");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const allowCrossOrigin = require("./middleware/corsMiddleware");
 
 // express app
 const app = express();
 const port = process.env.PORT;
 const mongoURL = process.env.MONGO_URL;
 
+app.use(cors());
 app.use(bodyParser.json());
-app.options("*", allowCrossOrigin);
 app.use("/api", routes);
 
 app.get("/", (req, res) => {
