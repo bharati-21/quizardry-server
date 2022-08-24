@@ -61,8 +61,8 @@ const signup = async (req, res) => {
 			firstName: createdUser.firstName,
 			lastName: createdUser.lastName,
 			email: createdUser.email,
-			totalScore: existingUser.totalScore,
-			quizAttempts: existingUser.quizAttempts,
+			totalScore: createdUser.totalScore,
+			quizAttempts: createdUser.quizAttempts,
 		},
 	});
 };
